@@ -107,15 +107,20 @@ export default function Comment({ post, users, localuser }) {
         }
     }
     //Handle Profile Page
-    const handleUserProfile = async (e, data) => {
+    const handleUserProfile = async (e, user) => {
         e.preventDefault();
-        try {
-            localStorage.setItem('userData', JSON.stringify(data));
-            // Redirect to the profile page
-            navigate('/profile/post');
-        } catch (error) {
-            console.log('fail', error);
+        if (data) {
+            try {
+                localStorage.setItem('userData', JSON.stringify(user));
+                // Redirect to the profile page
+                navigate('/profile/post');
+            } catch (error) {
+                console.log('fail', error);
+            }
+        } else {
+            toast.warning("User not login")
         }
+
     }
 
     return (
@@ -138,7 +143,7 @@ export default function Comment({ post, users, localuser }) {
                     ) : null)}
             </div>
             <div className='comment__data'>
-                <div className="comment__head" onClick={((e) => { handleUserProfile(e, data) })}>
+                <div className="comment__head" onClick={((e) => { handleUserProfile(e, post) })}>
                     <img src={postUser?.avatar ? postUser.avatar : profile} alt="profile" />
                     <p>{postUser?.username}</p>
                 </div>

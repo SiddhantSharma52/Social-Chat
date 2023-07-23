@@ -52,9 +52,9 @@ export default function Feed() {
             try {
                 let response;
                 if (data) {
-                    response = await axios.get(`http://localhost:9000?id=${data._id}`);
+                    response = await axios.get(`https://social-chat-q1i6.onrender.com?id=${data._id}`);
                 } else {
-                    response = await axios.get(`http://localhost:9000`);
+                    response = await axios.get(`https://social-chat-q1i6.onrender.com`);
                 }
                 setPosts(response.data.data);
                 setUsers(response.data.user);
@@ -138,15 +138,20 @@ export default function Feed() {
     };
 
     // Function to handle profile click and redirect to the profile page
-    const handleProfileClick = (e, data) => {
+    const handleProfileClick = (e, user) => {
         e.preventDefault();
-        try {
-            localStorage.setItem('userData', JSON.stringify(data));
-            // Redirect to the profile page
-            navigate('/profile/post');
-        } catch (error) {
-            console.log('fail', error);
+        if (data) {
+            try {
+                localStorage.setItem('userData', JSON.stringify(user));
+                // Redirect to the profile page
+                navigate('/profile/post');
+            } catch (error) {
+                console.log('fail', error);
+            }
+        } else {
+            toast.warning("User not login");
         }
+
     }
 
 
