@@ -17,7 +17,7 @@ const port = process.env.PORT || 4000;
 
 app.use(cors());
 const corsOptions = {
-    origin: process.env.CORS_URL, // Allow only requests from this domain
+    origin: [process.env.CORS_URL, process.env.CORS_URL1],  // Allow only requests from this domain
     optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));
