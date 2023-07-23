@@ -20,7 +20,7 @@ export default function Sidebar() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get("https://socail-media-backend.onrender.com/user");
+                const response = await axios.get("https://social-chat-q1i6.onrender.com/user");
                 setUser(response.data.data);
             } catch (error) {
                 console.error("Error fetching user data:", error);

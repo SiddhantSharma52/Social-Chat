@@ -9,7 +9,7 @@ const Notifications = () => {
     const [notifications, setNotifications] = useState([]);
 
     useEffect(() => {
-        const socket = socketIOClient('http://localhost:9000'); // Connect to the server
+        const socket = socketIOClient('https://social-chat-q1i6.onrender.com'); // Connect to the server
 
         socket.on('connect', () => {
             console.log('Connected to the Socket.IO server.');

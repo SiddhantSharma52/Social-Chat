@@ -79,7 +79,7 @@ export default function Feed() {
 
         try {
             dispatch(setLoading(true));
-            const response = await axios.post('https://socail-media-backend.onrender.com/createpost', formData);
+            const response = await axios.post('https://social-chat-q1i6.onrender.com/createpost', formData);
             if (response.data) {
                 toast.success(response.data.message);
             }
@@ -97,7 +97,7 @@ export default function Feed() {
     // Function to save a post on the profile
     const handleSave = async (id) => {
         if (data) {
-            const response = await axios.post('https://socail-media-backend.onrender.com/savepost', {
+            const response = await axios.post('https://social-chat-q1i6.onrender.com/savepost', {
                 id: id
             });
             if (response.data) {
@@ -111,7 +111,7 @@ export default function Feed() {
         try {
             setClick(false)
             if (click) {
-                const response = await axios.post(`https://socail-media-backend.onrender.com/toggle/like?id=${id}&type=Post&userid=${data._id}`);
+                const response = await axios.post(`https://social-chat-q1i6.onrender.com/toggle/like?id=${id}&type=Post&userid=${data._id}`);
                 if (response.data) {
                     // Find the post in the posts state and update its like count
                     const updatedPosts = posts.map(post => {

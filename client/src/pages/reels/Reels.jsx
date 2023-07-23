@@ -11,7 +11,7 @@ const Reels = () => {
 
     useEffect(() => {
         axios
-            .get('https://socail-media-backend.onrender.com/reels')
+            .get('https://social-chat-q1i6.onrender.com/reels')
             .then(response => {
                 setReels(response.data.data);
             })

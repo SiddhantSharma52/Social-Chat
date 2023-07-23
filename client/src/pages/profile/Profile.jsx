@@ -29,7 +29,7 @@ export default function Profile() {
     // Fetch user data and posts from the server on component mount
     useEffect(() => {
         if (userData) {
-            axios.post('https://socail-media-backend.onrender.com/getbyID', { Id: userData._id })
+            axios.post('https://social-chat-q1i6.onrender.com/getbyID', { Id: userData._id })
                 .then(response => {
                     const { data, user } = response.data;
                     setUser(user)
@@ -51,7 +51,7 @@ export default function Profile() {
         formData.append('user', userData._id);
         try {
             dispatch(setLoading(true));
-            const response = await axios.post('https://socail-media-backend.onrender.com/updatepost', formData);
+            const response = await axios.post('https://social-chat-q1i6.onrender.com/updatepost', formData);
             if (response.data) {
                 const updatedUser = response.data.user; // New user data received from the server
                 setUser(updatedUser); // Update the user state with the new user data
@@ -71,7 +71,7 @@ export default function Profile() {
     const handleFollow = async (e, id, localId) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://socail-media-backend.onrender.com/user/followers', {
+            const response = await axios.post('https://social-chat-q1i6.onrender.com/user/followers', {
                 userId: id,
                 localUser: localId,
             });
@@ -94,7 +94,7 @@ export default function Profile() {
         setToggle(true);
         setButtonType(buttonName);
         try {
-            const response = await axios.post('https://socail-media-backend.onrender.com/user/getfollowers', {
+            const response = await axios.post('https://social-chat-q1i6.onrender.com/user/getfollowers', {
                 buttonName: buttonName,
                 userId: user._id,
             });

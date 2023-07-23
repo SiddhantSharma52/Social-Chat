@@ -15,7 +15,7 @@ export default function Signin() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get("https://socail-media-backend.onrender.com/user/login");
+                const response = await axios.get("https://social-chat-q1i6.onrender.com/user/login");
                 if (response.data.data) {
                     // If the user is already logged in, navigate to the home page
                     navigate("/");
@@ -35,7 +35,7 @@ export default function Signin() {
         e.preventDefault();
         dispatch(setLoading(true));
         try {
-            const response = await axios.post('https://socail-media-backend.onrender.com/user/signin', {
+            const response = await axios.post('https://social-chat-q1i6.onrender.com/user/signin', {
                 email: form.email,
                 password: form.password
             });

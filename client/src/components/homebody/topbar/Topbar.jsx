@@ -21,7 +21,7 @@ const Topbar = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get("https://socail-media-backend.onrender.com/user");
+                const response = await axios.get("https://social-chat-q1i6.onrender.com/user");
                 const userData = response.data.data;
                 setUser(userData);
             } catch (error) {
@@ -35,7 +35,7 @@ const Topbar = () => {
     const userSignout = async () => {
         try {
             // toast.warn('Loading');
-            const response = await axios.post('https://socail-media-backend.onrender.com/user/signout');
+            const response = await axios.post('https://social-chat-q1i6.onrender.com/user/signout');
             if (response.data) {
                 localStorage.clear();// Clear user data from local storage
                 toast.success(response.data.message);// Show success message using toast

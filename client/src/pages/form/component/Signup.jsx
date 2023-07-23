@@ -18,7 +18,7 @@ export default function Signup() {
         const fetchUserData = async () => {
 
             try {
-                const response = await axios.get("https://socail-media-backend.onrender.com/user/login");
+                const response = await axios.get("https://social-chat-q1i6.onrender.com/user/login");
                 if (response.data.data) {
                     // If the user is already logged in, navigate to the home page
                     navigate("/");
@@ -41,7 +41,7 @@ export default function Signup() {
                 //setLoading 'true' in Redux for show loading bar
                 dispatch(setLoading(true));
                 // Send a POST request to the server to request email verification
-                const response = await axios.post('https://socail-media-backend.onrender.com/user/emailverification', {
+                const response = await axios.post('https://social-chat-q1i6.onrender.com/user/emailverification', {
                     email: form.email,
                 });
                 //setLoading 'false' in Redux for hide loading bar
@@ -63,7 +63,7 @@ export default function Signup() {
             if (form.email) {
                 setOtpform(true); // Set otpform state to true
                 // Send a POST request to the server to verify the OTP
-                const response = await axios.post('https://socail-media-backend.onrender.com/user/otpverification', {
+                const response = await axios.post('https://social-chat-q1i6.onrender.com/user/otpverification', {
                     email: form.email,
                     otp: form.otp
                 });
@@ -88,7 +88,7 @@ export default function Signup() {
             if (emailverify) {
                 dispatch(setLoading(true));
                 // Send a POST request to the server for user signup
-                const response = await axios.post('https://socail-media-backend.onrender.com/user/signup', {
+                const response = await axios.post('https://social-chat-q1i6.onrender.com/user/signup', {
                     username: form.username,
                     email: form.email,
                     password: form.password,

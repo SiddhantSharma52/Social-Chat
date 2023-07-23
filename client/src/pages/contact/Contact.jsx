@@ -39,7 +39,7 @@ export default function Contact() {
         try {
             //set setLoading value 'true' for show loading bar
             dispatch(setLoading(true));
-            const response = await axios.post("https://socail-media-backend.onrender.com/user/contactMail", {
+            const response = await axios.post("https://social-chat-q1i6.onrender.com/user/contactMail", {
                 data: form,
             });
             //set setLoading value 'false' for hide loading bar
