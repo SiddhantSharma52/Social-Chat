@@ -1,0 +1,10 @@
+.homeContainer {
+    width: 100%;
+    display: flex;
+    height: calc(99vh - 50px);
+    background: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
